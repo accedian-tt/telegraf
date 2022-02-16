@@ -353,6 +353,8 @@ func (c *CiscoTelemetryMDT) handleTelemetry(data []byte) {
 				keys = field
 			} else if field.Name == "content" {
 				content = field
+			} else {
+				c.parseKeyField(tags, field, "")
 			}
 		}
 
@@ -376,6 +378,7 @@ func (c *CiscoTelemetryMDT) handleTelemetry(data []byte) {
 		// Parse values
 		for _, subfield := range content.Fields {
 			c.parseContentField(grouper, subfield, "", msg.EncodingPath, tags, timestamp)
+			c.parseKeyField(tags, subfield, "")
 		}
 	}
 
