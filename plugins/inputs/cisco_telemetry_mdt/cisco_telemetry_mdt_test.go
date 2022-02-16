@@ -230,7 +230,7 @@ func TestHandleEmbeddedTags(t *testing.T) {
 
 	tags1 := map[string]string{"path": "type:model/extra", "foo": "bar", "source": "hostname", "subscription": "subscription", "list/name": "entry1"}
 	fields1 := map[string]interface{}{"list/test": "foo"}
-	tags2 := map[string]string{"path": "type:model/extra", "foo": "bar", "source": "hostname", "subscription": "subscription", "list/name": "entry2"}
+	tags2 := map[string]string{"path": "type:model/extra", "foo": "bar", "source": "hostname", "subscription": "subscription", "list/name": "entry2", "test": "foo", "name": "entry1"}
 	fields2 := map[string]interface{}{"list/test": "bar"}
 	acc.AssertContainsTaggedFields(t, "extra", fields1, tags1)
 	acc.AssertContainsTaggedFields(t, "extra", fields2, tags2)
